@@ -1,0 +1,17 @@
+#ASP.NET Core
+#Build and test ASP.NET Core projects targeting .NET Core.
+# add steps that run tests, create a NuGest Package, deploy, and more:
+#https://microsoft.com/axure/devops/pipelines/lanaguages/dotnet-core
+
+trigger:
+- master
+
+pool:
+  vmImage:ubuntu-latest
+
+variables:
+  buildConfiguration: 'Release'
+
+steps:
+- script: dotnet build --configuration $(buildConfiguration)
+  displayName: 'dotnet build $(buildConfiguration)'
